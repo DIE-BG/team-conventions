@@ -13,6 +13,8 @@ Welcome to the **Team Development Standards & Best Practices** repository. This 
     - [Branch Naming Conventions](#branch-naming-conventions)
       - [From the `main` Branch](#from-the-main-branch)
       - [From Other Branches](#from-other-branches)
+      - [What kind of files should be included in a repository?](#what-kind-of-files-should-be-included-in-a-repository)
+      - [What kind of files should **NOT** be included in a repository?](#what-kind-of-files-should-not-be-included-in-a-repository)
 
 ---
 
@@ -72,6 +74,45 @@ This naming pattern should be followed recursively. That means if another develo
 ```
 jd-login_page-h2-animation-<alias>-<feature-name>
 ```
+
+#### What kind of files should be included in a repository?
+
+A repository is, in general, not a cloud storage service. Its main purpose is to save and track changes to the source code. This can include, but is not limited to:
+
+- Source code files
+- Configuration files
+- Documentation files
+- Images and other media necessary for the project
+- Data files essential for the project
+- Dependency files (e.g., `requirements.txt`, `package.json`, `Manifest.toml`, `Project.toml`)
+
+#### What kind of files should **NOT** be included in a repository?
+
+Avoid including the following files in a repository:
+
+- Compiled binaries or executables
+- Log files
+- Temporary files
+- IDE-specific files (e.g., `.vscode`, `.idea`, `.DS_Store`)
+- Images and media that are not essential for the project
+- Data files that are too large, sensitive, or not essential for the project
+- Any compiled documentation:
+  - PDFs from LaTeX
+  - Rendered HTML files
+  - Rendered Jupyter notebooks
+  - Rendered Markdown files
+  - Rendered Quarto files
+  - Any other rendered file
+
+> [!CAUTION]
+> **Avoid at all costs including sensitive information in the repository, such as passwords, API keys, or any other confidential data.**  
+
+Instead, define these in a configuration file that is not included in the repository, and reference them in the code.
+
+Leverage the `.gitignore` file to exclude unnecessary files and directories from the repository. Remember that it is possible to untrack files that were previously tracked by Git and remove them from the repository history. Always be cautious when doing this, as it can lead to the loss of important information.
+
+
+
 <!--
   - [2️⃣ Julia Development Standards](#2️⃣-julia-development-standards)
   - [3️⃣ MATLAB Coding Guidelines](#3️⃣-matlab-coding-guidelines)
